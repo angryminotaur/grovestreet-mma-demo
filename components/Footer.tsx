@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { site } from "@/lib/site";
+import { FourthformCredit } from "./FourthformCredit";
 
 const links = [
   { href: "#story", label: "Story" },
@@ -75,17 +76,7 @@ export function Footer() {
             &copy; {site.established} {site.fullName} &middot; {site.city},{" "}
             {site.state}
           </p>
-          <p>
-            Demo site by{" "}
-            <a
-              href="https://flowdesksystems.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-bone underline underline-offset-4"
-            >
-              Flow Desk Systems
-            </a>
-          </p>
+          <FourthformCredit />
         </div>
       </div>
     </footer>

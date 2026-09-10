@@ -1,7 +1,7 @@
 # GroveStreet MMA & Jiu-Jitsu — Demo Homepage
 
 A single-page demo site for **GroveStreet MMA & Jiu-Jitsu** (Mountain Grove, MO),
-built by [Flow Desk Systems](https://flowdesksystems.com) as a cold-outreach
+built by [Fourthform](https://www.fourthformstudios.com) as a cold-outreach
 concept piece. The gym has not opened yet — grand opening is **October 3, 2026**.
 
 This is a demo, not a live client site. There is no backend, no form handling and
