@@ -1,4 +1,4 @@
-import { programs, site } from "@/lib/site";
+import { programs } from "@/lib/site";
 import { SectionHeading } from "./SectionHeading";
 
 export function Programs() {
@@ -15,14 +15,9 @@ export function Programs() {
           title="Programs"
         />
 
-        <p className="-mt-4 mb-12 max-w-2xl font-body text-lg leading-relaxed text-bone/70">
-          Everything below runs out of one room. The full class schedule lands
-          closer to opening day.
-        </p>
-
         <ul className="grid gap-px border-2 border-bone/20 bg-bone/20 sm:grid-cols-2">
           {programs.map((program, index) => (
-            <li key={program.id} className="bg-ink p-6 md:p-8">
+            <li key={program.id} className="flex flex-col bg-ink p-6 md:p-8">
               <div className="flex items-baseline justify-between gap-4">
                 <p className="font-display text-[0.65rem] uppercase tracking-[0.32em] text-blood">
                   {program.eyebrow}
@@ -43,46 +38,34 @@ export function Programs() {
                 {program.body}
               </p>
 
-              <ul className="mt-6 space-y-2">
-                {program.points.map((point) => (
-                  <li
-                    key={point}
-                    className="flex gap-3 font-body text-sm uppercase tracking-[0.1em] text-bone-dim"
-                  >
-                    <span aria-hidden="true" className="text-blood">
-                      /
-                    </span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-auto pt-6">
+                <p className="font-display text-[0.6rem] uppercase tracking-[0.32em] text-bone-dim">
+                  When
+                </p>
+                <ul className="mt-2 space-y-1.5">
+                  {program.when.map((slot) => (
+                    <li
+                      key={slot}
+                      className="flex gap-3 font-body text-sm uppercase tracking-[0.1em] text-bone"
+                    >
+                      <span aria-hidden="true" className="text-blood">
+                        /
+                      </span>
+                      {slot}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </li>
           ))}
         </ul>
 
-        {/* Schedule, pricing and coach bios are intentionally unstated —
-            the gym has not opened and none of it is confirmed. */}
-        <div className="mt-10 border-2 border-dashed border-bone/30 p-6 md:p-8">
-          <p className="font-display text-[0.65rem] uppercase tracking-[0.32em] text-blood">
-            Coming before opening day
-          </p>
-          <h3 className="mt-3 font-display text-2xl uppercase leading-tight text-bone md:text-3xl">
-            Class schedule, membership rates and coach bios
-          </h3>
-          <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-bone/70">
-            Times and pricing are still being locked in. Rather than guess, we
-            are posting them once they are final. Message the page and we will
-            send them to you the day they go up.
-          </p>
-          <a
-            href={site.messengerUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-block border-2 border-bone px-6 py-3 font-display text-xs uppercase tracking-[0.28em] text-bone transition-colors hover:bg-bone hover:text-ink"
-          >
-            Get the schedule first
-          </a>
-        </div>
+        <a
+          href="#schedule"
+          className="mt-8 inline-block border-2 border-bone px-6 py-3 font-display text-xs uppercase tracking-[0.28em] text-bone transition-colors hover:bg-bone hover:text-ink"
+        >
+          Full weekly schedule
+        </a>
       </div>
     </section>
   );

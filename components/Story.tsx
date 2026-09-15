@@ -34,18 +34,17 @@ export function Story() {
             </p>
             <p>
               GroveStreet is the end of that drive. One gym, two disciplines,
-              coaches who live here, and mats that stay open for the people who
-              actually walk through the door.
+              and mats right here in town for the people who actually walk
+              through the door.
             </p>
             <p className="border-l-4 border-blood pl-5 font-display text-xl uppercase leading-snug tracking-wide text-bone">
-              No contracts you need a lawyer for. No mirrors and no music
-              policy. Just the work.
+              Show up. Do the work. That is the whole program.
             </p>
             <p>
-              We are not open yet. The mats are down, the walls are padded, and
-              the competition team is already out repping the patch. On{" "}
+              The mats are down, the walls are padded, and the competition team
+              is already out repping the patch. On{" "}
               <strong className="text-bone">{site.openingDate}</strong> the
-              doors open to everyone else.
+              doors open at {site.street} to everyone else.
             </p>
           </div>
 

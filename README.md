@@ -31,20 +31,17 @@ Import the repo and accept the defaults. Nothing else is required:
 
 ## Content and placeholders
 
-All copy lives in [`lib/site.ts`](lib/site.ts). Anything unconfirmed is marked
-`PLACEHOLDER` in that file and is deliberately left unstated on the page rather
-than invented:
+All copy lives in [`lib/site.ts`](lib/site.ts). The class schedule, street address
+and grand opening details come from the gym's own Facebook announcement.
 
 | Item | Status |
 | --- | --- |
-| Class schedule | Not published — the Programs section says it lands before opening day |
-| Membership pricing | Not published — no rates appear anywhere on the page |
+| Class schedule | Real, from the gym's announcement |
+| Street address | Real: 430 N Chapman, Mountain Grove, MO |
+| Grand opening details | Real: tours, program info, sign-ups, no classes that day |
+| Membership pricing | Not published. Page says sign-ups open at the grand opening |
 | Coach bios | Not published |
-| Street address | `"Address announced soon"` — city/state only |
-| Messenger / Facebook URLs | Guessed handle `grovestreetmma` — replace with the real page links |
-
-Programs (MMA, Jiu-Jitsu, Youth, Open Mat) are written as descriptions of what is
-trained, not as a timetable, so they hold up until the schedule is final.
+| Messenger / Facebook URLs | `PLACEHOLDER`: guessed handle `grovestreetmma`, replace with the real page links |
 
 ## Media
 

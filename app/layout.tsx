@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     template: "%s | GroveStreet MMA & Jiu-Jitsu",
   },
   description:
-    "Bringing mixed martial arts back to Mountain Grove, MO. MMA and Brazilian Jiu-Jitsu training for all levels. Grand opening October 3, 2026.",
+    "Bringing mixed martial arts back to Mountain Grove, MO. MMA and Brazilian Jiu-Jitsu for adults and kids at 430 N Chapman. Grand opening October 3, 2026.",
   keywords: [
     "MMA Mountain Grove MO",
     "Jiu-Jitsu Mountain Grove",
     "Brazilian Jiu-Jitsu Missouri",
-    "martial arts school Wright County",
+    "kids jiu-jitsu Mountain Grove",
     "GroveStreet MMA",
   ],
   openGraph: {

@@ -19,8 +19,8 @@ export function Visit() {
 
             <div className="space-y-6 font-body text-lg leading-relaxed text-bone/80">
               <p>
-                Right in town, built for the people who live here. Wright
-                County and everyone within an easy drive of it.
+                Right in town on North Chapman, built for Mountain Grove and
+                everyone within an easy drive of it.
               </p>
 
               <dl className="space-y-6 border-t-2 border-bone/20 pt-6">
@@ -28,21 +28,35 @@ export function Visit() {
                   <dt className="font-display text-[0.65rem] uppercase tracking-[0.32em] text-blood">
                     Address
                   </dt>
-                  {/* PLACEHOLDER — exact street address not confirmed yet. */}
                   <dd className="mt-2 font-display text-2xl uppercase leading-tight text-bone">
-                    {site.addressLine}
+                    <address className="not-italic">
+                      {site.street}
+                      <span className="mt-1 block font-body text-sm tracking-[0.14em] text-bone-dim">
+                        {site.city}, {site.state}
+                      </span>
+                    </address>
                   </dd>
-                  <dd className="mt-1 font-body text-sm uppercase tracking-[0.14em] text-bone-dim">
-                    {site.city}, {site.state}
+                  <dd className="mt-4">
+                    <a
+                      href={site.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block border-2 border-bone/50 px-5 py-2.5 font-display text-xs uppercase tracking-[0.28em] text-bone transition-colors hover:border-bone hover:bg-bone/10"
+                    >
+                      Get directions
+                    </a>
                   </dd>
                 </div>
 
                 <div>
                   <dt className="font-display text-[0.65rem] uppercase tracking-[0.32em] text-blood">
-                    Opening
+                    Grand opening
                   </dt>
                   <dd className="mt-2 font-display text-2xl uppercase leading-tight text-bone">
                     {site.openingDate}
+                  </dd>
+                  <dd className="mt-1 font-body text-sm uppercase tracking-[0.14em] text-bone-dim">
+                    Tours, sign-ups, no classes
                   </dd>
                 </div>
 
@@ -51,8 +65,7 @@ export function Visit() {
                     Best way to reach us
                   </dt>
                   <dd className="mt-2 font-body text-base leading-relaxed text-bone/75">
-                    Facebook Messenger. A phone line and email go up when the
-                    doors do.
+                    Facebook Messenger.
                   </dd>
                 </div>
               </dl>
@@ -76,9 +89,9 @@ export function Visit() {
               <ul className="mt-8 space-y-3">
                 {[
                   "Questions about MMA or Jiu-Jitsu",
-                  "Youth and teen classes",
-                  "Visiting from another gym",
-                  "First on the list when the schedule drops",
+                  "Kids Jiu-Jitsu",
+                  "Membership sign-ups",
+                  "Grand opening day",
                 ].map((item) => (
                   <li
                     key={item}
