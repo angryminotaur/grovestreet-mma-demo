@@ -5,7 +5,7 @@ import { SectionHeading } from "./SectionHeading";
 const stats = [
   { value: site.followers, label: "Following before day one" },
   { value: "2", label: "Disciplines under one roof" },
-  { value: "Est. 2026", label: "Doors open this fall" },
+  { value: "2026", label: "Established. Doors open this fall" },
 ];
 
 export function Story() {
@@ -48,16 +48,16 @@ export function Story() {
             </p>
           </div>
 
-          <dl className="mt-12 grid grid-cols-3 border-t-2 border-bone/20">
+          <dl className="mt-12 grid grid-cols-1 gap-px border-2 border-bone/20 bg-bone/20 sm:grid-cols-3">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="flex flex-col-reverse border-b-2 border-r-2 border-bone/20 py-5 pr-3 last:border-r-0"
+                className="flex flex-col bg-ink px-5 py-6"
               >
-                <dt className="mt-2 font-body text-xs uppercase tracking-[0.16em] text-bone-dim">
+                <dt className="order-2 mt-3 font-body text-xs uppercase leading-snug tracking-[0.14em] text-bone-dim">
                   {stat.label}
                 </dt>
-                <dd className="font-display text-3xl uppercase leading-none text-bone sm:text-4xl">
+                <dd className="order-1 whitespace-nowrap font-display text-4xl uppercase leading-none text-bone">
                   {stat.value}
                 </dd>
               </div>
@@ -65,8 +65,8 @@ export function Story() {
           </dl>
         </div>
 
-        <figure className="grain relative isolate">
-          <div className="relative aspect-[4/5] overflow-hidden border-2 border-bone/20">
+        <figure>
+          <div className="grain relative isolate aspect-[4/5] overflow-hidden border-2 border-bone/20">
             <Image
               src="/media/competition-team.jpg"
               alt="The GroveStreet competition team in club shirts holding medals after a tournament"
