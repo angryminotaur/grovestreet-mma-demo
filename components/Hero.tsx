@@ -21,8 +21,8 @@ export function Hero() {
       {/* Side label, desktop only */}
       <p
         aria-hidden="true"
-        className="absolute bottom-28 left-8 z-20 hidden origin-bottom-left whitespace-nowrap font-display text-[0.65rem] uppercase tracking-[0.5em] text-bone-dim xl:block"
-        style={{ transform: "rotate(-90deg) translateY(100%)" }}
+        className="hero-fade absolute bottom-28 left-8 z-20 hidden origin-bottom-left whitespace-nowrap font-display text-[0.65rem] uppercase tracking-[0.5em] text-bone-dim xl:block"
+        style={{ transform: "rotate(-90deg) translateY(100%)", "--hero-delay": "1200ms" } as React.CSSProperties}
       >
         Mountain Grove, Missouri &bull; Est. {site.established}
       </p>
@@ -36,13 +36,15 @@ export function Hero() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover object-[28%_center] grayscale contrast-[1.4] brightness-[0.82] lg:object-[38%_center]"
+            className="hero-zoom object-cover object-[28%_center] grayscale contrast-[1.4] brightness-[0.82] lg:object-[38%_center]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-transparent to-ink/60 lg:bg-gradient-to-r lg:from-ink/50 lg:via-transparent lg:to-ink/30" />
         </div>
 
         {/* Opening stamp */}
-        <div className="absolute right-4 top-24 z-10 -rotate-[9deg] scale-90 sm:right-8 sm:scale-100 lg:right-[9%] lg:top-[15%]">
+        <div
+          style={{ "--hero-delay": "1100ms" } as React.CSSProperties}
+          className="hero-slam absolute right-4 top-24 z-10 -rotate-[9deg] scale-90 sm:right-8 sm:scale-100 lg:right-[9%] lg:top-[15%]">
           <div className="stamp-ink border-[3px] border-stamp p-1">
             <div className="border border-stamp px-3 py-2 text-center text-stamp sm:px-4">
               <p className="font-display text-[0.6rem] uppercase tracking-[0.3em]">
@@ -59,7 +61,9 @@ export function Hero() {
         </div>
 
         {/* Taped comp-team print */}
-        <figure className="absolute bottom-[40%] right-[6%] z-10 hidden w-40 rotate-[5deg] lg:block xl:w-52">
+        <figure
+          style={{ "--hero-delay": "800ms" } as React.CSSProperties}
+          className="hero-drop absolute bottom-[40%] right-[6%] z-10 hidden w-40 rotate-[5deg] lg:block xl:w-52">
           <div
             aria-hidden="true"
             className="tape absolute -top-3 left-1/2 z-10 h-6 w-24 -translate-x-1/2 -rotate-[4deg] bg-bone/75"
@@ -86,18 +90,24 @@ export function Hero() {
         <div className="order-2 lg:order-1 lg:max-w-[36%]">
           <p
             aria-hidden="true"
-            className="font-gothic text-5xl leading-[0.95] text-bone sm:text-6xl lg:text-7xl"
+            style={{ "--hero-delay": "300ms" } as React.CSSProperties}
+            className="hero-rise font-gothic text-5xl leading-[0.95] text-bone sm:text-6xl lg:text-7xl"
           >
             MMA <span className="text-blood">&bull;</span>
             <br />
             Jiu-Jitsu
           </p>
 
-          <p className="mt-6 max-w-sm font-body text-xl leading-snug text-bone/85">
+          <p
+            style={{ "--hero-delay": "420ms" } as React.CSSProperties}
+            className="hero-rise mt-6 max-w-sm font-body text-xl leading-snug text-bone/85">
             {site.tagline}.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div
+            style={{ "--hero-delay": "520ms" } as React.CSSProperties}
+            className="hero-rise mt-8 flex flex-wrap items-center gap-3"
+          >
             <a
               href={site.messengerUrl}
               target="_blank"
@@ -114,12 +124,17 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="mt-6 font-display text-[0.65rem] uppercase tracking-[0.32em] text-bone-dim">
+          <p
+            style={{ "--hero-delay": "620ms" } as React.CSSProperties}
+            className="hero-rise mt-6 font-display text-[0.65rem] uppercase tracking-[0.32em] text-bone-dim"
+          >
             Doors open {site.openingDate}
           </p>
         </div>
 
-        <div className="order-1 -mt-14 mb-8 sm:-mt-20 lg:order-2 lg:mb-0 lg:mt-0 lg:max-w-[78%]">
+        <div
+          style={{ "--hero-delay": "150ms" } as React.CSSProperties}
+          className="hero-rise order-1 -mt-14 mb-8 sm:-mt-20 lg:order-2 lg:mb-0 lg:mt-0 lg:max-w-[78%]">
           <StickerWordmark className="drop-shadow-[0_14px_30px_rgb(0_0_0/0.7)]" />
         </div>
       </div>

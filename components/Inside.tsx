@@ -15,7 +15,7 @@ export function Inside() {
         title="Inside the room"
       />
 
-      <p className="-mt-4 mb-12 max-w-2xl font-body text-lg leading-relaxed text-bone/70">
+      <p data-reveal="up" className="-mt-4 mb-12 max-w-2xl font-body text-lg leading-relaxed text-bone/70">
         Build-out shots, first sessions and the crew already putting the name
         on the board. More goes up as the room comes together.
       </p>
@@ -24,6 +24,8 @@ export function Inside() {
         {gallery.map((item, index) => (
           <figure
             key={item.src}
+            data-reveal="wipe"
+            style={{ "--reveal-delay": `${index * 140}ms` } as React.CSSProperties}
             className={`grain relative isolate border-2 border-bone/20 ${
               item.span === "wide" ? "sm:col-span-2" : ""
             }`}

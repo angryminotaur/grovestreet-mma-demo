@@ -17,7 +17,7 @@ export function Visit() {
               title={"Mountain Grove,\nMissouri"}
             />
 
-            <div className="space-y-6 font-body text-lg leading-relaxed text-bone/80">
+            <div data-reveal="up" className="space-y-6 font-body text-lg leading-relaxed text-bone/80">
               <p>
                 Right in town on North Chapman, built for Mountain Grove and
                 everyone within an easy drive of it.
@@ -72,7 +72,11 @@ export function Visit() {
             </div>
           </div>
 
-          <div className="grain relative isolate flex flex-col justify-between border-2 border-bone/25 p-7 md:p-10">
+          <div
+            data-reveal="up"
+            style={{ "--reveal-delay": "150ms" } as React.CSSProperties}
+            className="grain relative isolate flex flex-col justify-between border-2 border-bone/25 p-7 md:p-10"
+          >
             <div>
               <p className="font-display text-[0.65rem] uppercase tracking-[0.32em] text-blood">
                 Start here

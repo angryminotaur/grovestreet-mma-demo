@@ -68,7 +68,18 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${anton.variable} ${unifraktur.variable} ${barlow.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Arm scroll reveals before first paint. If the observer never
+            boots (script blocked, bundle failed), drop the flag after 3s so
+            nothing stays hidden. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var d=document.documentElement;d.classList.add("js-reveal");setTimeout(function(){if(!("revealReady" in d.dataset))d.classList.remove("js-reveal")},3000)})();`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

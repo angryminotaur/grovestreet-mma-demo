@@ -4,6 +4,7 @@ import { Inside } from "@/components/Inside";
 import { Marquee } from "@/components/Marquee";
 import { Nav } from "@/components/Nav";
 import { Programs } from "@/components/Programs";
+import { RevealObserver } from "@/components/RevealObserver";
 import { Schedule } from "@/components/Schedule";
 import { Story } from "@/components/Story";
 import { Visit } from "@/components/Visit";
@@ -66,6 +67,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <RevealObserver />
 
       <script
         type="application/ld+json"

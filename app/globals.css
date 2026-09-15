@@ -110,3 +110,113 @@
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.7 1.75'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23s)'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.7 1.75'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23s)'/%3E%3C/svg%3E");
 }
+
+/* ---- Motion ------------------------------------------------------ */
+/*
+ * Scroll reveals. Hidden states only apply once the inline script in
+ * layout.tsx has flagged <html class="js-reveal">, so no-JS visitors and
+ * anyone preferring reduced motion always see everything.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal [data-reveal] {
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js-reveal [data-reveal="up"]:not([data-revealed]) {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  /*
+   * Photos and grids tear open from the top edge down. This is a curtain
+   * pseudo-element rather than clip-path on the element itself: a fully
+   * clipped target never intersects, so IntersectionObserver would never
+   * reveal it (or anything inside it).
+   */
+  .js-reveal [data-reveal="wipe"] {
+    position: relative;
+  }
+  .js-reveal [data-reveal="wipe"]::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: 40;
+    pointer-events: none;
+    background: var(--reveal-curtain, var(--color-ink));
+    transform-origin: bottom center;
+    transition: transform 0.95s cubic-bezier(0.75, 0, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .js-reveal [data-reveal="wipe"][data-revealed]::before {
+    transform: scaleY(0);
+  }
+
+  /* Curtains match whichever ground their section sits on */
+  .bg-ink-soft {
+    --reveal-curtain: var(--color-ink-soft);
+  }
+
+  /* Heading rule bars draw across */
+  .js-reveal [data-reveal="rule"] {
+    transform-origin: left center;
+  }
+  .js-reveal [data-reveal="rule"]:not([data-revealed]) {
+    transform: scaleX(0);
+  }
+
+  /* Stamped in: overshoots then settles */
+  .js-reveal [data-reveal="stamp"] {
+    transition:
+      opacity 0.25s ease-out,
+      transform 0.45s cubic-bezier(0.3, 1.6, 0.5, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  /* Kept to 1.08: the hidden state still takes up layout width, so a
+     full-width box at a bigger scale pushes past the edge of a phone
+     screen and widens the page. */
+  .js-reveal [data-reveal="stamp"]:not([data-revealed]) {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  /* Hero entrance, plays once on load */
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(48px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes hero-zoom {
+    from { transform: scale(1.14); }
+    to { transform: scale(1); }
+  }
+  @keyframes hero-slam {
+    0% { opacity: 0; transform: scale(2.4); }
+    55% { opacity: 1; transform: scale(0.92); }
+    75% { transform: scale(1.04); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes hero-drop {
+    from { opacity: 0; transform: translateY(-60px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes hero-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hero-rise { animation: hero-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero-zoom { animation: hero-zoom 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero-slam { animation: hero-slam 0.55s cubic-bezier(0.3, 0, 0.4, 1) both; }
+  .hero-drop { animation: hero-drop 0.8s cubic-bezier(0.3, 1.3, 0.5, 1) both; }
+  .hero-fade { animation: hero-fade 1s ease-out both; }
+
+  .hero-rise,
+  .hero-zoom,
+  .hero-slam,
+  .hero-drop,
+  .hero-fade {
+    animation-delay: var(--hero-delay, 0ms);
+  }
+}

@@ -26,21 +26,21 @@ export function Story() {
           />
 
           <div className="space-y-5 font-body text-lg leading-relaxed text-bone/80">
-            <p>
+            <p data-reveal="up" style={{ "--reveal-delay": "0ms" } as React.CSSProperties}>
               Mountain Grove has produced fighters for years. What it has not
               had is a room of its own to build them in. Drive to Springfield,
               drive to West Plains, drive an hour each way for one hour on the
               mat.
             </p>
-            <p>
+            <p data-reveal="up" style={{ "--reveal-delay": "90ms" } as React.CSSProperties}>
               GroveStreet is the end of that drive. One gym, two disciplines,
               and mats right here in town for the people who actually walk
               through the door.
             </p>
-            <p className="border-l-4 border-blood pl-5 font-display text-xl uppercase leading-snug tracking-wide text-bone">
+            <p data-reveal="up" style={{ "--reveal-delay": "180ms" } as React.CSSProperties} className="border-l-4 border-blood pl-5 font-display text-xl uppercase leading-snug tracking-wide text-bone">
               Show up. Do the work. That is the whole program.
             </p>
-            <p>
+            <p data-reveal="up" style={{ "--reveal-delay": "270ms" } as React.CSSProperties}>
               The mats are down, the walls are padded, and the competition team
               is already out repping the patch. On{" "}
               <strong className="text-bone">{site.openingDate}</strong> the
@@ -48,16 +48,22 @@ export function Story() {
             </p>
           </div>
 
-          <dl className="mt-12 grid grid-cols-1 gap-px border-2 border-bone/20 bg-bone/20 sm:grid-cols-3">
-            {stats.map((stat) => (
+          <dl data-reveal="wipe" className="mt-12 grid grid-cols-1 gap-px border-2 border-bone/20 bg-bone/20 sm:grid-cols-3">
+            {stats.map((stat, index) => (
               <div
                 key={stat.label}
                 className="flex flex-col bg-ink px-5 py-6"
               >
-                <dt className="order-2 mt-3 font-body text-xs uppercase leading-snug tracking-[0.14em] text-bone-dim">
+                <dt
+                  data-reveal="up"
+                  style={{ "--reveal-delay": `${250 + index * 110}ms` } as React.CSSProperties}
+                  className="order-2 mt-3 font-body text-xs uppercase leading-snug tracking-[0.14em] text-bone-dim">
                   {stat.label}
                 </dt>
-                <dd className="order-1 whitespace-nowrap font-display text-4xl uppercase leading-none text-bone">
+                <dd
+                  data-reveal="up"
+                  style={{ "--reveal-delay": `${180 + index * 110}ms` } as React.CSSProperties}
+                  className="order-1 whitespace-nowrap font-display text-4xl uppercase leading-none text-bone">
                   {stat.value}
                 </dd>
               </div>
@@ -66,7 +72,7 @@ export function Story() {
         </div>
 
         <figure>
-          <div className="grain relative isolate aspect-[4/5] overflow-hidden border-2 border-bone/20">
+          <div data-reveal="wipe" className="grain relative isolate aspect-[4/5] overflow-hidden border-2 border-bone/20">
             <Image
               src="/media/competition-team.jpg"
               alt="The GroveStreet competition team in club shirts holding medals after a tournament"
@@ -75,7 +81,7 @@ export function Story() {
               className="object-cover grayscale contrast-[1.1] brightness-90"
             />
           </div>
-          <figcaption className="mt-4 border-l-4 border-blood pl-4 font-body text-sm uppercase tracking-[0.12em] text-bone-dim">
+          <figcaption data-reveal="up" style={{ "--reveal-delay": "500ms" } as React.CSSProperties} className="mt-4 border-l-4 border-blood pl-4 font-body text-sm uppercase tracking-[0.12em] text-bone-dim">
             The competition team, out repping the patch before the doors open.
           </figcaption>
         </figure>
